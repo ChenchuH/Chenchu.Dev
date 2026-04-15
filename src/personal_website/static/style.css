@@ -1,18 +1,18 @@
-html,
-body {
+html, body {
     height: 100%;
     margin: 0;
 }
 
+/* ===== Theme ===== */
+
 :root {
-    --bg: #ffffff;
-    --text: #111111;
+    --bg: #f8f9fb;
+    --text: #111;
     --muted: #5f5f5f;
     --border: #d9d9d9;
-    --link: #111111;
     --accent: #4f8cff;
-    --footer-text: #111111;
-    --card-bg: #ffffff;
+    --card-bg: #fff;
+
     --content-width: 680px;
     --side-padding: 20px;
 }
@@ -21,98 +21,79 @@ html.dark-mode {
     --bg: #121212;
     --text: #f1f1f1;
     --muted: #b5b5b5;
-    --border: #333333;
-    --link: #f1f1f1;
+    --border: #333;
     --accent: #7fb0ff;
-    --footer-text: #fffefe;
     --card-bg: #1b1b1b;
 }
+
+/* ===== Base ===== */
 
 body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     font-family: Inter, system-ui, sans-serif;
-    background-color: var(--bg);
+    background: var(--bg);
     color: var(--text);
     line-height: 1.65;
-    transition: background-color 0.2s ease, color 0.2s ease;
+    transition: background 0.2s ease, color 0.2s ease;
 }
 
-/* ===== Layout Containers ===== */
+/* ===== Layout ===== */
 
-/* Only content is constrained */
 .content {
     max-width: var(--content-width);
     margin: 0 auto;
     padding: 20px var(--side-padding);
-    box-sizing: border-box;
     width: 100%;
+    box-sizing: border-box;
 }
 
-/* Navbar + Footer are FULL WIDTH */
 .navbar,
 .footer-navbar {
     width: 100%;
-    background-color: #78a7ff;
+    background: #5b6ee1;
 }
 
-/* Inner wrapper to keep content centered */
 .nav-inner,
 .footer-inner {
     max-width: var(--content-width);
     margin: 0 auto;
     padding: 0 var(--side-padding);
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    gap: 20px;
-    box-sizing: border-box;
+    align-items: center;
 }
 
-/* ===== Header ===== */
+/* ===== Navbar ===== */
 
 .navbar {
-    padding: 1rem 0;
+    padding: 0.5rem 0;
     font-size: 15px;
 }
 
-.nav-left,
-.nav-right {
-    display: flex;
-    align-items: center;
-}
-
 .nav-left {
+    display: flex;
     gap: 24px;
 }
 
 .nav-left a {
     text-decoration: none;
-    color: var(--link);
-    opacity: 0.72;
-    transition: opacity 0.2s ease, color 0.2s ease;
+    color: var(--text);
+    opacity: 0.7;
 }
 
-.nav-left a:hover {
-    opacity: 1;
-}
-
+.nav-left a:hover,
 .nav-left a.active {
     opacity: 1;
     font-weight: 600;
 }
 
-/* ===== Page Transition ===== */
+/* ===== Page ===== */
 
 .container {
     flex: 1;
-    width: 100%;
     padding: 2.5rem 0;
-    box-sizing: border-box;
-
-    opacity: 1;
-    transform: translateY(0);
     transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
@@ -125,38 +106,29 @@ body {
 /* ===== Typography ===== */
 
 .content h1 {
-    margin-top: 0;
-    margin-bottom: 0.75rem;
+    margin: 0 0 0.75rem;
     font-size: 2.2rem;
     font-weight: 600;
-    line-height: 1.15;
-    letter-spacing: -0.02em;
 }
 
 .content h2 {
-    margin-top: 2rem;
-    margin-bottom: 0.65rem;
+    margin: 2rem 0 0.65rem;
     font-size: 1.4rem;
-    font-weight: 600;
 }
 
 .content h3 {
-    margin-top: 1.6rem;
-    margin-bottom: 0.55rem;
+    margin: 1.6rem 0 0.55rem;
     font-size: 1.1rem;
-    font-weight: 600;
 }
 
 .content p {
     font-size: 0.98rem;
     color: var(--muted);
-    margin: 0 0 1rem 0;
+    margin-bottom: 1rem;
 }
 
 .content a {
     color: var(--accent);
-    text-underline-offset: 3px;
-    transition: opacity 0.2s ease;
 }
 
 .content a:hover {
@@ -165,11 +137,10 @@ body {
 
 .subtitle {
     margin-bottom: 2rem;
-    font-size: 1rem;
     color: var(--muted);
 }
 
-/* ===== Cards / Projects ===== */
+/* ===== Cards ===== */
 
 .projects-grid {
     display: grid;
@@ -180,8 +151,7 @@ body {
 .card {
     border: 1px solid var(--border);
     padding: 20px;
-    background-color: var(--card-bg);
-    transition: transform 0.2s ease;
+    background: var(--card-bg);
 }
 
 .card:hover {
@@ -191,24 +161,18 @@ body {
 /* ===== Footer ===== */
 
 .footer-navbar {
-    padding: 20px 0;
-    color: var(--footer-text);
-}
-
-.footer-copy {
-    color: var(--footer-text);
+    padding: 6px 0;
 }
 
 .footer-links {
     display: flex;
-    gap: 15px;
+    gap: 12px;
 }
 
 .footer-links a {
-    width: 32px;
-    height: 32px;
+    width: 20px;
+    height: 20px;
     position: relative;
-    display: inline-block;
 }
 
 .footer-links img {
@@ -217,73 +181,17 @@ body {
     position: absolute;
 }
 
-.icon-light { opacity: 1; }
 .icon-dark { opacity: 0; }
-
 html.dark-mode .icon-light { opacity: 0; }
 html.dark-mode .icon-dark { opacity: 1; }
 
 /* ===== Theme Toggle ===== */
 
 #theme-toggle {
-    border: none;
     background: none;
+    border: none;
     cursor: pointer;
     color: var(--text);
-}
-
-#theme-toggle svg {
-    width: 1.35rem;
-    height: 1.35rem;
-}
-
-/* ===== Skills ===== */
-
-.skills {
-    margin-top: 1rem;
-}
-
-.skill-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 0.4rem;
-}
-
-.skill-label {
-    min-width: 120px;
-    font-size: 0.85rem;
-    color: var(--muted);
-}
-
-.skill-badges img {
-    height: 18px;
-    margin-right: 4px;
-}
-
-/* ===== Music ===== */
-
-.music-section {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.album-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 5px;
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-.album-card img {
-    width: 100%;
-    border-radius: 10px;
-    transition: transform 0.2s ease;
-}
-
-.album-card img:hover {
-    transform: scale(1.05);
 }
 
 /* ===== Mobile ===== */
@@ -300,20 +208,6 @@ html.dark-mode .icon-dark { opacity: 1; }
         text-align: center;
     }
 
-    .content h1 {
-        font-size: 1.8rem;
-    }
-
-    .content h2 {
-        font-size: 1.25rem;
-    }
-
-    .skill-row {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .skill-label {
-        min-width: 0;
-    }
+    .content h1 { font-size: 1.8rem; }
+    .content h2 { font-size: 1.25rem; }
 }
