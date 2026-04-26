@@ -8,9 +8,6 @@ __pycache__/
 # Virtual env
 .venv/
 
-# Build output
-src/personal_website/build/
-
 # OS junk
 .DS_Store
 Thumbs.db
