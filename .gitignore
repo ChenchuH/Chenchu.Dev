@@ -1,2 +1,19 @@
 .venv
 notes.md
+
+# Python
+__pycache__/
+*.pyc
+
+# Virtual env
+.venv/
+
+# Build output
+src/personal_website/build/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Windows zone files
+*Zone.Identifier*
